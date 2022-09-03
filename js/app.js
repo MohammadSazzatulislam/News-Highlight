@@ -24,14 +24,14 @@ const displayCategory = async () => {
 }
 
 const newsProtal = async (news) => {
-
+    spinner(true)
     const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${news}`)
     const allNews = await res.json()
     displayNews(allNews.data)
 }
 
 const displayNews = async newsData => {  
-
+    
     const missing = newsData.length
 
     const totalFound = document.getElementById('Total-news-found')
@@ -39,7 +39,7 @@ const displayNews = async newsData => {
 
     if(missing === 0 || missing !== 0){
         totalFound.innerHTML = `
-        <h3>${ newsData.length ? newsData.length : ` Not found`  } items found for category </h3>
+        <h3>${ newsData.length ? newsData.length : ` Not `  } items found for category </h3>
          `   
     }
         
@@ -68,7 +68,7 @@ const displayNews = async newsData => {
                         </div>
                     </label>
                     <div>
-                        <p>${news.author.name}</p>
+                        <p>${news.author.name ? news.author.name : 'Author name not found' }</p>
                         <small>${news.author.published_date}</small>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ const displayNews = async newsData => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${news.total_view} M</p>
+                    <p>${news.total_view ? news.total_view : 'View not found' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -85,7 +85,6 @@ const displayNews = async newsData => {
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                 </div>
-                
                 <label onclick ="newsDetails('${news._id}')" for="my-modal-5" ><a class=" cursor-pointer modal-button text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Icon description</span>
@@ -95,8 +94,8 @@ const displayNews = async newsData => {
         </div>
         `;
         newsContainer.appendChild(div)
-    }
-
+    } 
+    spinner(false)
 }
 
 const newsDetails = async (details) => {
@@ -127,7 +126,7 @@ const modalDetails = async (modalDetail) => {
                         </div>
                     </label>
                     <div>
-                        <p>${element.author.name}</p>
+                        <p>${element.author.name ? element.author.name : 'Author name not found' }</p>
                         <small>${element.author.published_date}</small>
                     </div>
                 </div>
@@ -135,7 +134,7 @@ const modalDetails = async (modalDetail) => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${element.total_view} M</p>
+                    <p>${element.total_view ? element.total_view : 'View not found' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -159,10 +158,14 @@ const modalDetails = async (modalDetail) => {
 
 }
 
-
-
-
-
+const spinner = (dataLoad) => {
+   const spin = document.getElementById('spinner')
+    if(dataLoad){
+        spin.classList.remove('hidden')
+    }else{
+        spin.classList.add('hidden')
+    }
+}
 
 displayCategory()
 
