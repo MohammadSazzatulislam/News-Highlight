@@ -4,7 +4,6 @@ const loadData = async () => {
     return data.data.news_category;
 }
 
-
 const displayCategory = async () => {
     const data = await loadData()
 
@@ -32,7 +31,7 @@ const newsProtal = async (news) => {
 }
 
 const displayNews = async newsData => {  
-    
+
     const missing = newsData.length
 
     const totalFound = document.getElementById('Total-news-found')
