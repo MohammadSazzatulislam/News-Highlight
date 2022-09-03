@@ -68,7 +68,7 @@ const displayNews = async newsData => {
                         </div>
                     </label>
                     <div>
-                        <p>${news.author.name ? news.author.name : 'Author name not found' }</p>
+                        <p>${news.author.name ? news.author.name : 'No data available' }</p>
                         <small>${news.author.published_date}</small>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ const displayNews = async newsData => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${news.total_view ? news.total_view : 'View not found' } M</p>
+                    <p>${news.total_view ? news.total_view : 'No data available' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -126,7 +126,7 @@ const modalDetails = async (modalDetail) => {
                         </div>
                     </label>
                     <div>
-                        <p>${element.author.name ? element.author.name : 'Author name not found' }</p>
+                        <p>${element.author.name ? element.author.name : 'No data available' }</p>
                         <small>${element.author.published_date}</small>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ const modalDetails = async (modalDetail) => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${element.total_view ? element.total_view : 'View not found' } M</p>
+                    <p>${element.total_view ? element.total_view : 'No data available' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>

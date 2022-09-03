@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwindcss link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- daseui cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <title> Blog </title>
+</head>
+<body class="bg-gray-100">
+    <!-- header section -->
+    <header class="bg-gray-300 bg-opacity-50 py-1 rounded-bl-full " >
+        <nav class=" sm:w-5/12 md:w-9/12 lg:w-10/12 xl:w-10/12 2xl:10/12 mx-auto">
+            <div class="navbar  ">
+                <div class="flex-1">
+                  <a class=" sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-bold "><span class="bg-blue-600 text-white px-5 py-2 rounded-md">News</span> portal</a>
+                </div>
+                <div class="flex-none">
+                  <ul class="menu menu-horizontal p-0 ">
+                    <li><a class=" text-blue-600  sm:px-2 sm:py-1 2xl:px-5 2xl:py-2 xl:px-5 xl:py-2 lg:px-5 lg:py-2 md:px-5 md:py-2  sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium" >Home</a></li>
+                    <li><a class=" sm:px-2 sm:py-1 2xl:px-5 2xl:py-2 xl:px-5 xl:py-2 lg:px-5 lg:py-2 md:px-5 md:py-2 sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">Blog</a></li>
+                  </ul>
+                  <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                      <img src="https://placeimg.com/80/80/people" />
+                    </div>
+                  </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- main section -->
+    <main>
+        <div>
+            <section class="sm:w-5/12 md:w-9/12 lg:w-9/12 xl:w-9/12 2xl:w-10/12 mx-auto my-10">
+                <div class="collapse">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">
+                     1. What is the differences between var, let, and const.
+                    </div>
+                    <div class="collapse-content"> 
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold"> VAR : </span> The scope of a var variable is functional scope.It can be updated and re-declared into the scope.It can be declared without initialization.It can be accessed without initialization as its default value is “undefined”.hoisting done , with initializing as 'default' value</p>
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold">LET :</span> The scope of a let variable is block scope.It can be updated but cannot be re-declared into the scope.It can be declared without initialization.It cannot be accessed without initialization otherwise it will give 'referenceError'.Hoisting is done , but not initialized (this is the reason for error when we access the let variable before declaration/initialization</p>
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"><span class="font-bold">CONST :</span> The scope of a const variable is block scope.It cannot be updated or re-declared into the scope.It cannot be declared without initialization.It cannot be accessed without initialization, as it cannot be declared without initialization.Hoisting is done, but not initialized (this is the reason for error when we access the const variable before declaration/initialization</p>
+                    </div>
+                </div>
+            </section>
+            <section class="sm:w-5/12 md:w-9/12 lg:w-9/12 xl:w-9/12 2xl:w-10/12 mx-auto my-10">
+                <div class="collapse">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">
+                     2. What is the differences between arrow functon and ragular function .
+                    </div>
+                    <div class="collapse-content"> 
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> Arrow functions  a new feature introduced in ES6  enable writing concise functions in JavaScript. While both regular and arrow functions work in a similar manner, yet there are certain interesting differences between them, as discussed below.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="sm:w-5/12 md:w-9/12 lg:w-9/12 xl:w-9/12 2xl:w-10/12 mx-auto my-10">
+                <div class="collapse">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">
+                     3. What is the differences between map, forEach, find and flter .
+                    </div>
+                    <div class="collapse-content"> 
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold"> map : </span> The map() method loops through each element in array and calls the provided function for each element. This method creates a new array and doesn't alter the original array.</p>
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold"> forEach : </span> forEach() is used to execute the same code on every element in an array but does not change the array and it returns undefined.</p>
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold"> find : </span> The find() method returns the value of the first element that passes a test. The find() method executes a function for each array element. The find() method returns undefined if no elements are found. The find() method does not execute the function for empty elements.</p>
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> <span class="font-bold"> filter : </span> The filter() method in JavaScript creates a new array with the elements that satisfies the provided condition. This method calls a provided function for each element in array and verifies the condition given in the provided function and passes only those elements that satisfy the given condition.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="sm:w-5/12 md:w-9/12 lg:w-9/12 xl:w-9/12 2xl:w-10/12 mx-auto my-10">
+                <div class="collapse">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">
+                     4. Why we use Template literals .
+                    </div>
+                    <div class="collapse-content"> 
+                      <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium">Template literals are not just a fancy way of declaring strings in ES6. The real power of template literals can be understood using the substitutions. Using substitutions you can dynamically populate data within the strings declared using template literals much like you would be able to do using a templating engine.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- footer section -->
+    <footer class=" footer footer-center p-6 bg-gray-300 bg-opacity-50  rounded-tr-full">
+        <div>
+          <p class="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> Copyright © 2022 - All right reserved by ACME Industries Ltd </p>
+        </div>
+    </footer>
+</body>
+</html>
