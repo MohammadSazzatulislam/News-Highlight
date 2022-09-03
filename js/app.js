@@ -51,15 +51,19 @@ const displayNews = async newsData => {
     
         const div = document.createElement('div')
         div.classList.add('card')
-        div.classList.add('card-side')
+        div.classList.add('sm:card-top')
+        div.classList.add('md:card-side')
+        div.classList.add('lg:card-side')
+        div.classList.add('xl:card-side')
+        div.classList.add('2xl:card-side')
         div.classList.add('bg-base-100')
         div.classList.add('mb-7')
         div.innerHTML = `
-        <img class=" p-5" src="${news.thumbnail_url}" alt="News">
-        <div class="card-body ">
-            <h3 class="card-title">${news.title}</h3>
-            <p> ${news.details.slice(0,278)}</p>
-            <p class =" truncate box-border max-h-64 max-w-3xl "> ${news.details.slice(279, 600)}</p>
+        <img class=" p-5 sm:w-25 sm:h-25 md:h-full lg:h-full xl:h-full 2xl:h-full " src="${news.thumbnail_url}" alt="News">
+        <div class="card-body  ">
+            <h3 class="card-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-bold">${news.title}</h3>
+            <p class ="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> ${news.details.slice(0,278)}</p>
+            <p class =" truncate box-border sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium "> ${news.details.slice(279, 600)}</p>
             <div class="card-actions flex justify-between items-center ">
                 <div class = "flex gap-4">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -68,7 +72,7 @@ const displayNews = async newsData => {
                         </div>
                     </label>
                     <div>
-                        <p>${news.author.name ? news.author.name : 'No data available' }</p>
+                        <p class ="font-bold">${news.author.name ? news.author.name : 'No data available' }</p>
                         <small>${news.author.published_date}</small>
                     </div>
                 </div>
@@ -76,7 +80,7 @@ const displayNews = async newsData => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${news.total_view ? news.total_view : 'No data available' } M</p>
+                    <p class ="font-bold">${news.total_view ? news.total_view : 'No data available' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -112,11 +116,11 @@ const modalDetails = async (modalDetail) => {
     modalDetail.forEach(element => {
         const div = document.createElement('div')
         div.innerHTML = `
-        <img class=" p-5 w-full" src="${element.image_url}" alt="News">
+        <img class=" p-5 sm:w-25 sm:h-25 md:w-full lg:w-full xl:w-full 2xl:w-full" src="${element.image_url}" alt="News">
         <div>
-            <h3 class="card-title">${element.title}</h3>
-            <p> ${element.details.slice(0,500)}</p>
-            <p class =" truncate box-border max-h-64 max-w-3xl "> ${element.details.slice(500, 900)}</p>
+            <h3 class="card-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-bold ">${element.title}</h3>
+            <p class ="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"> ${element.details.slice(0,500)}</p>
+            <p class =" truncate box-border sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"> ${element.details.slice(500, 900)}</p>
         </div>
         <div class="flex justify-between items-center ">
                 <div class = "flex gap-4">
@@ -126,7 +130,7 @@ const modalDetails = async (modalDetail) => {
                         </div>
                     </label>
                     <div>
-                        <p>${element.author.name ? element.author.name : 'No data available' }</p>
+                        <p class ="font-bold">${element.author.name ? element.author.name : 'No data available' }</p>
                         <small>${element.author.published_date}</small>
                     </div>
                 </div>
@@ -134,7 +138,7 @@ const modalDetails = async (modalDetail) => {
                     <div>
                         <i class="fa-regular fa-eye"></i>
                     </div>
-                    <p>${element.total_view ? element.total_view : 'No data available' } M</p>
+                    <p class ="font-bold" >${element.total_view ? element.total_view : 'View not found' } M</p>
                 </div>
                 <div class ="flex gap-2">
                     <i class="fa-regular fa-star-half-stroke"></i>
