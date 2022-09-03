@@ -12,7 +12,6 @@ const displayCategory = async () => {
 
     let unique = [];
     data.forEach(element => {
-        // console.log(element)
         if(unique.indexOf(element.category_name) === -1){
             unique.push(element.category_name)
             const li = document.createElement('li')
@@ -22,6 +21,11 @@ const displayCategory = async () => {
             listContainer.appendChild(li)
         }
     }); 
+
+
+
+
+
 }
 
 const newsProtal = async (news) => {
@@ -31,8 +35,7 @@ const newsProtal = async (news) => {
     displayNews(allNews.data)
 }
 
-const displayNews = newsData => {
-    
+const displayNews = async newsData => {   
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML ='';
 
@@ -87,7 +90,6 @@ const displayNews = newsData => {
     }
 }
 
-
 const newsDetails = async (details) => {
     const res = await fetch (`https://openapi.programming-hero.com/api/news/${details}`)
     const data = await res.json()
@@ -100,8 +102,6 @@ const modalDetails = async (modalDetail) => {
     newsModalcontinser.innerHTML = '';
     
     modalDetail.forEach(element => {
-        console.log(element)
-
         const div = document.createElement('div')
         div.innerHTML = `
         <img class=" p-5 w-full" src="${element.image_url}" alt="News">
