@@ -16,7 +16,7 @@ const displayCategory = async () => {
             unique.push(element.category_name)
             const li = document.createElement('li')
             li.innerHTML =`
-            <a href="#" onclick ="newsProtal('${element.category_id}')" > ${element.category_name} </a>
+            <a href="#" class ="opacity-75 " onclick ="newsProtal('${element.category_id}')" > ${element.category_name} </a>
             `;
             listContainer.appendChild(li)
         }
@@ -39,7 +39,7 @@ const displayNews = async newsData => {
 
     if(missing === 0 || missing !== 0){
         totalFound.innerHTML = `
-        <h3>${ newsData.length ? newsData.length : ` Not `  } items found for category </h3>
+        <h3 class ="font-semibold" >${ newsData.length ? newsData.length : ` Not `  } items found for category </h3>
          `   
     }
         
@@ -59,8 +59,8 @@ const displayNews = async newsData => {
         <img class=" p-5 sm:w-25 sm:h-25 md:h-full lg:h-full xl:h-full 2xl:h-full " src="${news.thumbnail_url}" alt="News">
         <div class="card-body sm:w-full md:w-5/12  ">
             <h3 class="card-title sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-bold">${news.title}</h3>
-            <p class ="sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> ${news.details.slice(0,278)}</p>
-            <p class =" truncate box-border sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium "> ${news.details.slice(279, 600)}</p>
+            <p class ="sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium opacity-50 "> ${news.details.slice(0,278)}</p>
+            <p class =" truncate box-border sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium opacity-50 "> ${news.details.slice(279, 600)}</p>
             <div class="card-actions flex justify-between items-center ">
                 <div class = "flex gap-4">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -70,7 +70,7 @@ const displayNews = async newsData => {
                     </label>
                     <div>
                         <p class ="font-bold">${news.author.name ? news.author.name : 'No data available' }</p>
-                        <small>${news.author.published_date}</small>
+                        <small class ="opacity-75" >${news.author.published_date ? news.author.published_date : 'No data available' }</small>
                     </div>
                 </div>
                 <div class ="flex gap-3">
@@ -112,14 +112,15 @@ const modalDetails = async (modalDetail) => {
     
     modalDetail.forEach(element => {
         const div = document.createElement('div')
+        div.classList.add('card')
         div.innerHTML = `
         <img class=" p-5 sm:w-25 sm:h-25 md:w-full lg:w-full xl:w-full 2xl:w-full" src="${element.image_url}" alt="News">
         <div>
             <h3 class="card-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-bold ">${element.title}</h3>
-            <p class ="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"> ${element.details.slice(0,500)}</p>
-            <p class =" truncate box-border sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl"> ${element.details.slice(500, 900)}</p>
+            <p class ="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl opacity-50 "> ${element.details.slice(0,500)}</p>
+            <p class =" truncate box-border sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl opacity-50 "> ${element.details.slice(500, 900)}</p>
         </div>
-        <div class="flex justify-between items-center ">
+        <div class=" card-actions flex justify-between items-center ">
                 <div class = "flex gap-4">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full">
@@ -128,7 +129,7 @@ const modalDetails = async (modalDetail) => {
                     </label>
                     <div>
                         <p class ="font-bold">${element.author.name ? element.author.name : 'No data available' }</p>
-                        <small>${element.author.published_date}</small>
+                        <small class ="opacity-75" >${element.author.published_date ?element.author.published_date : 'No data available'}</small>
                     </div>
                 </div>
                 <div class ="flex gap-3">
@@ -149,7 +150,7 @@ const modalDetails = async (modalDetail) => {
                     <span class="sr-only">Close</span>
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a></label>
-                </div>
+                </div>   
         </div>    
         `;
         newsModalcontinser.appendChild(div)
