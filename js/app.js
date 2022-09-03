@@ -53,17 +53,14 @@ const displayNews = async newsData => {
         div.classList.add('card')
         div.classList.add('sm:card-top')
         div.classList.add('md:card-side')
-        div.classList.add('lg:card-side')
-        div.classList.add('xl:card-side')
-        div.classList.add('2xl:card-side')
         div.classList.add('bg-base-100')
         div.classList.add('mb-7')
         div.innerHTML = `
         <img class=" p-5 sm:w-25 sm:h-25 md:h-full lg:h-full xl:h-full 2xl:h-full " src="${news.thumbnail_url}" alt="News">
-        <div class="card-body  ">
-            <h3 class="card-title sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-bold">${news.title}</h3>
-            <p class ="sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> ${news.details.slice(0,278)}</p>
-            <p class =" truncate box-border sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium "> ${news.details.slice(279, 600)}</p>
+        <div class="card-body sm:w-full md:w-5/12  ">
+            <h3 class="card-title sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-bold">${news.title}</h3>
+            <p class ="sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium"> ${news.details.slice(0,278)}</p>
+            <p class =" truncate box-border sm:text-sm md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-medium "> ${news.details.slice(279, 600)}</p>
             <div class="card-actions flex justify-between items-center ">
                 <div class = "flex gap-4">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar">
