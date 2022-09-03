@@ -4,6 +4,7 @@ const loadData = async () => {
     return data.data.news_category;
 }
 
+
 const displayCategory = async () => {
     const data = await loadData()
 
@@ -21,11 +22,6 @@ const displayCategory = async () => {
             listContainer.appendChild(li)
         }
     }); 
-
-
-
-
-
 }
 
 const newsProtal = async (news) => {
@@ -35,12 +31,25 @@ const newsProtal = async (news) => {
     displayNews(allNews.data)
 }
 
-const displayNews = async newsData => {   
+const displayNews = async newsData => {  
+    
+    const missing = newsData.length
+
+    const totalFound = document.getElementById('Total-news-found')
+    totalFound.innerHTML = '';
+
+    if(missing === 0 || missing !== 0){
+        totalFound.innerHTML = `
+        <h3>${ newsData.length ? newsData.length : ` Not found`  } items found for category </h3>
+         `   
+    }
+        
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML ='';
 
+    
     for(const news of newsData){
-
+    
         const div = document.createElement('div')
         div.classList.add('card')
         div.classList.add('card-side')
@@ -88,6 +97,7 @@ const displayNews = async newsData => {
         `;
         newsContainer.appendChild(div)
     }
+
 }
 
 const newsDetails = async (details) => {
